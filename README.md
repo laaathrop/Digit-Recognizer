@@ -1,18 +1,173 @@
-# Hackathon: Digit Recognizer
+<div align="center">
+  <img src="https://en.wikipedia.org/wiki/MNIST_database#/media/File:MnistExamples.png"><br>
+</div>
 
-### Problem Statement
+-----------------
 
-The MNIST data is famous for being a benchmark dataset for learning the fundamentals of Computer Vision. The data contains about 42000 data points each consisting of a label (a single digit between 1 and 10) and 783 additional columns each containing a number between 0 and 255 that describes the shade of the pixel. The goal of this Hackathon was to implement classification algorithms in order to predict labels given pixel data for testing data points.
+# pandas: powerful Python data analysis toolkit
+[![PyPI Latest Release](https://img.shields.io/pypi/v/pandas.svg)](https://pypi.org/project/pandas/)
+[![Conda Latest Release](https://anaconda.org/conda-forge/pandas/badges/version.svg)](https://anaconda.org/anaconda/pandas/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3509134.svg)](https://doi.org/10.5281/zenodo.3509134)
+[![Package Status](https://img.shields.io/pypi/status/pandas.svg)](https://pypi.org/project/pandas/)
+[![License](https://img.shields.io/pypi/l/pandas.svg)](https://github.com/pandas-dev/pandas/blob/master/LICENSE)
+[![Travis Build Status](https://travis-ci.org/pandas-dev/pandas.svg?branch=master)](https://travis-ci.org/pandas-dev/pandas)
+[![Azure Build Status](https://dev.azure.com/pandas-dev/pandas/_apis/build/status/pandas-dev.pandas?branch=master)](https://dev.azure.com/pandas-dev/pandas/_build/latest?definitionId=1&branch=master)
+[![Coverage](https://codecov.io/github/pandas-dev/pandas/coverage.svg?branch=master)](https://codecov.io/gh/pandas-dev/pandas)
+[![Downloads](https://anaconda.org/conda-forge/pandas/badges/downloads.svg)](https://pandas.pydata.org)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pydata/pandas)
+[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+## What is it?
+
+**pandas** is a Python package that provides fast, flexible, and expressive data
+structures designed to make working with "relational" or "labeled" data both
+easy and intuitive. It aims to be the fundamental high-level building block for
+doing practical, **real world** data analysis in Python. Additionally, it has
+the broader goal of becoming **the most powerful and flexible open source data
+analysis / manipulation tool available in any language**. It is already well on
+its way towards this goal.
+
+## Main Features
+Here are just a few of the things that pandas does well:
+
+  - Easy handling of [**missing data**][missing-data] (represented as
+    `NaN`, `NA`, or `NaT`) in floating point as well as non-floating point data
+  - Size mutability: columns can be [**inserted and
+    deleted**][insertion-deletion] from DataFrame and higher dimensional
+    objects
+  - Automatic and explicit [**data alignment**][alignment]: objects can
+    be explicitly aligned to a set of labels, or the user can simply
+    ignore the labels and let `Series`, `DataFrame`, etc. automatically
+    align the data for you in computations
+  - Powerful, flexible [**group by**][groupby] functionality to perform
+    split-apply-combine operations on data sets, for both aggregating
+    and transforming data
+  - Make it [**easy to convert**][conversion] ragged,
+    differently-indexed data in other Python and NumPy data structures
+    into DataFrame objects
+  - Intelligent label-based [**slicing**][slicing], [**fancy
+    indexing**][fancy-indexing], and [**subsetting**][subsetting] of
+    large data sets
+  - Intuitive [**merging**][merging] and [**joining**][joining] data
+    sets
+  - Flexible [**reshaping**][reshape] and [**pivoting**][pivot-table] of
+    data sets
+  - [**Hierarchical**][mi] labeling of axes (possible to have multiple
+    labels per tick)
+  - Robust IO tools for loading data from [**flat files**][flat-files]
+    (CSV and delimited), [**Excel files**][excel], [**databases**][db],
+    and saving/loading data from the ultrafast [**HDF5 format**][hdfstore]
+  - [**Time series**][timeseries]-specific functionality: date range
+    generation and frequency conversion, moving window statistics,
+    date shifting and lagging.
 
 
-### Blog Post
+   [missing-data]: https://pandas.pydata.org/pandas-docs/stable/missing_data.html#working-with-missing-data
+   [insertion-deletion]: https://pandas.pydata.org/pandas-docs/stable/dsintro.html#column-selection-addition-deletion
+   [alignment]: https://pandas.pydata.org/pandas-docs/stable/dsintro.html?highlight=alignment#intro-to-data-structures
+   [groupby]: https://pandas.pydata.org/pandas-docs/stable/groupby.html#group-by-split-apply-combine
+   [conversion]: https://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe
+   [slicing]: https://pandas.pydata.org/pandas-docs/stable/indexing.html#slicing-ranges
+   [fancy-indexing]: https://pandas.pydata.org/pandas-docs/stable/indexing.html#advanced-indexing-with-ix
+   [subsetting]: https://pandas.pydata.org/pandas-docs/stable/indexing.html#boolean-indexing
+   [merging]: https://pandas.pydata.org/pandas-docs/stable/merging.html#database-style-dataframe-joining-merging
+   [joining]: https://pandas.pydata.org/pandas-docs/stable/merging.html#joining-on-index
+   [reshape]: https://pandas.pydata.org/pandas-docs/stable/reshaping.html#reshaping-and-pivot-tables
+   [pivot-table]: https://pandas.pydata.org/pandas-docs/stable/reshaping.html#pivot-tables-and-cross-tabulations
+   [mi]: https://pandas.pydata.org/pandas-docs/stable/indexing.html#hierarchical-indexing-multiindex
+   [flat-files]: https://pandas.pydata.org/pandas-docs/stable/io.html#csv-text-files
+   [excel]: https://pandas.pydata.org/pandas-docs/stable/io.html#excel-files
+   [db]: https://pandas.pydata.org/pandas-docs/stable/io.html#sql-queries
+   [hdfstore]: https://pandas.pydata.org/pandas-docs/stable/io.html#hdf5-pytables
+   [timeseries]: https://pandas.pydata.org/pandas-docs/stable/timeseries.html#time-series-date-functionality
 
-This was an exciting assignment for me to complete because it was a chance during the 12 weeks of DSI when I could apply skills I have been learning to a problem of my choice. I have a budding interest in robot perception and robot learning and have been looking for a chance to explore my interest in the context of all of the technical skills and methods we have been developing over the last 6 weeks. I chose the MNIST dataset in the context of the Kaggle competition with the goal of developing a digit recognizer by applying K-Nearest Neighbors and Support Vector Machines to a computer vision problem, very exciting because of the potential for a real world application in my field of interest. 
+## Where to get it
+The source code is currently hosted on GitHub at:
+https://github.com/pandas-dev/pandas
 
-After loading the dataset I realized that it was pretty large, about 42000 rows. This is a huge amount of data and hung up my computer several times when I got to the modeling stage. I performed some logical masking on the dataframe containing the set in order to get a feel for exactly what I was looking at. Each data point consists of a label (a single digit between 1 and 10) and 783 additional columns; each one contains a number between 0 and 255 that describes the shade of the pixel. The dataset classes turned out to be very well balanced and there were no unexpected or missing values. 
+Binary installers for the latest released version are available at the [Python
+package index](https://pypi.org/project/pandas) and on conda.
 
-At first, my intent was to visualize the data by grouping data points of the same labels together and comparing the magnitude of the nonzero integers repesenting each pixel. I would still like create a visualization but for the sake of time, I moved on to the modeling.
+```sh
+# conda
+conda install pandas
+```
 
-My goal when approaching this dataset was to gain some exposure to concepts in computer vision, a very exciting topic considering all of the research being done on self driving cars as well as smart homes, another potential interest of mine. During the process of choosing a dataset for the Hackathon I stumbled across the Human Activity Recognition from Continuous Ambient Sensor Data data set but chose not to dive in because of personal computing constraints. I'd like to come back to this later and assess my interest in the context of developing smart homes. 
+```sh
+# or PyPI
+pip install pandas
+```
 
-Initially I started out with all 42000 rows of the MNIST data and that proved to be way too much for my laptop to handle! In order to make my laptop cooperate I downsized considerably, to about 2000 datapoints. My thought process here was to first establish a baseline. I found cross validation scores for five KNN models with k = 1, 3, 5, 10 and 15, all with five cross validation folds. The accuracy scores here were highest for k = 1, 3 and 5 so these were the values that I ended up putting into my parameter grid when it came time to do gridsearching. The MNIST database of handwritted digits (http://yann.lecun.com/exdb/mnist/index.html) indicated some pretty low error rates for KNN algorithms applied to this dataset, especially for higher values of the power metric, hence my motivation to gridsearch over the top-performing values of k and power metric values of 1, 2 and 3. Establishing a pipeline to feed into the GridSearchCV function with these parameters yielded drastically better results, although the model seems to be overfit. I chose to then implement a support vector machine because of its soft margin property inherent to the SVM algorithm; this yielded excellent results. My thought process was that pixels in digit image data will generally not have a clear boundary for classification; a soft margin classifier is needed. The result was less overfitting and a higher overall testing score.
+## Dependencies
+- [NumPy](https://www.numpy.org)
+- [python-dateutil](https://labix.org/python-dateutil)
+- [pytz](https://pythonhosted.org/pytz)
+
+See the [full installation instructions](https://pandas.pydata.org/pandas-docs/stable/install.html#dependencies) for minimum supported versions of required, recommended and optional dependencies.
+
+## Installation from sources
+To install pandas from source you need Cython in addition to the normal
+dependencies above. Cython can be installed from pypi:
+
+```sh
+pip install cython
+```
+
+In the `pandas` directory (same one where you found this file after
+cloning the git repo), execute:
+
+```sh
+python setup.py install
+```
+
+or for installing in [development mode](https://pip.pypa.io/en/latest/reference/pip_install.html#editable-installs):
+
+
+```sh
+python -m pip install -e . --no-build-isolation --no-use-pep517
+```
+
+If you have `make`, you can also use `make develop` to run the same command.
+
+or alternatively
+
+```sh
+python setup.py develop
+```
+
+See the full instructions for [installing from source](https://pandas.pydata.org/pandas-docs/stable/install.html#installing-from-source).
+
+## License
+[BSD 3](LICENSE)
+
+## Documentation
+The official documentation is hosted on PyData.org: https://pandas.pydata.org/pandas-docs/stable
+
+## Background
+Work on ``pandas`` started at AQR (a quantitative hedge fund) in 2008 and
+has been under active development since then.
+
+## Getting Help
+
+For usage questions, the best place to go to is [StackOverflow](https://stackoverflow.com/questions/tagged/pandas).
+Further, general questions and discussions can also take place on the [pydata mailing list](https://groups.google.com/forum/?fromgroups#!forum/pydata).
+
+## Discussion and Development
+Most development discussions take place on github in this repo. Further, the [pandas-dev mailing list](https://mail.python.org/mailman/listinfo/pandas-dev) can also be used for specialized discussions or design issues, and a [Gitter channel](https://gitter.im/pydata/pandas) is available for quick development related questions.
+
+## Contributing to pandas [![Open Source Helpers](https://www.codetriage.com/pandas-dev/pandas/badges/users.svg)](https://www.codetriage.com/pandas-dev/pandas)
+
+All contributions, bug reports, bug fixes, documentation improvements, enhancements, and ideas are welcome.
+
+A detailed overview on how to contribute can be found in the **[contributing guide](https://pandas.pydata.org/docs/dev/development/contributing.html)**. There is also an [overview](.github/CONTRIBUTING.md) on GitHub.
+
+If you are simply looking to start working with the pandas codebase, navigate to the [GitHub "issues" tab](https://github.com/pandas-dev/pandas/issues) and start looking through interesting issues. There are a number of issues listed under [Docs](https://github.com/pandas-dev/pandas/issues?labels=Docs&sort=updated&state=open) and [good first issue](https://github.com/pandas-dev/pandas/issues?labels=good+first+issue&sort=updated&state=open) where you could start out.
+
+You can also triage issues which may include reproducing bug reports, or asking for vital information such as version numbers or reproduction instructions. If you would like to start triaging issues, one easy way to get started is to [subscribe to pandas on CodeTriage](https://www.codetriage.com/pandas-dev/pandas).
+
+Or maybe through using pandas you have an idea of your own or are looking for something in the documentation and thinking ‘this can be improved’...you can do something about it!
+
+Feel free to ask questions on the [mailing list](https://groups.google.com/forum/?fromgroups#!forum/pydata) or on [Gitter](https://gitter.im/pydata/pandas).
+
+As contributors and maintainers to this project, you are expected to abide by pandas' code of conduct. More information can be found at: [Contributor Code of Conduct](https://github.com/pandas-dev/pandas/blob/master/.github/CODE_OF_CONDUCT.md)
